@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1085245269495",
+    "project_id": "royal-life-application",
+    "storage_bucket": "royal-life-application.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1085245269495:android:1b6894c372835df0f4faf2",
+        "android_client_info": {
+          "package_name": "com.example.royallifeapplication"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1085245269495-kmng0mfird4m1qk2e8hq570fhbfjepgt.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD71fG9xEwQw1g1IasW36d5OIX56mZniIw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1085245269495-kmng0mfird4m1qk2e8hq570fhbfjepgt.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
