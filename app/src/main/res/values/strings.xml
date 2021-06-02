@@ -1,3 +1,9 @@
 <resources>
-    <string name="app_name">Royal Life Application</string>
+    <string name="app_name">The Last Time</string>
+    <string name="my_profile">MY PROFILE</string>
+    <string name="qr_code">QR CODE</string>
+    <string name="shearch">SHEARCH</string>
+    <string name="sign_out">SIGN OUT</string>
+    <string name="open">OPEN</string>
+    <string name="close">CLOSE</string>
 </resources>
