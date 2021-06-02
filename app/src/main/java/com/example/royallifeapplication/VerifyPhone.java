@@ -65,7 +65,6 @@ public class VerifyPhone extends AppCompatActivity {
 
         phonenumber = findViewById(R.id.edtPhoneNumber);
         fAuth = FirebaseAuth.getInstance();
-
         //otptext
         //otpcode = findViewById(R.id.edtOTP);
 
@@ -113,6 +112,7 @@ public class VerifyPhone extends AppCompatActivity {
                 verrificationId = s;
                 token = forceResendingToken;
                 sendotp.setEnabled(false);
+                otpcode.requestFocus();
             }
 
             @Override
@@ -138,7 +138,7 @@ public class VerifyPhone extends AppCompatActivity {
             public void onSuccess(AuthResult authResult) {
                 Toast.makeText(VerifyPhone.this, "Success", Toast.LENGTH_LONG).show();
 
-                startActivity(new Intent(getApplicationContext(), mmeennuu.class));
+                startActivity(new Intent(getApplicationContext(), Login.class));
                 finish();
             }
         }).addOnFailureListener(new OnFailureListener() {

@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.google.android.material.textfield.TextInputLayout;
@@ -22,6 +23,7 @@ import java.util.regex.Pattern;
 public class SignUp extends AppCompatActivity {
     private Button btnsignup;
     private TextInputLayout fullname,email,username,pass,passagain;
+    ImageView back;
     DatabaseReference fAuth;
 
     private boolean isValidEmailId(String email){
@@ -109,6 +111,12 @@ public class SignUp extends AppCompatActivity {
             }
         });
 
-
+    back = findViewById(R.id.backto);
+    back.setOnClickListener(new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            Intent intent = new Intent(getApplicationContext(),Login.class);
+        }
+    });
     }
 }

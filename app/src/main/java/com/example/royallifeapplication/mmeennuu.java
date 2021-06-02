@@ -44,6 +44,7 @@ public class mmeennuu extends AppCompatActivity implements NavigationView.OnNavi
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         getSupportActionBar().hide();
         setContentView(R.layout.activity_mmeennuu);
+
         featuredRecycler = findViewById(R.id.featred_recycler);
         featuredRecycler();
         viewedCard = findViewById(R.id.featred_recycler1);
@@ -53,8 +54,7 @@ public class mmeennuu extends AppCompatActivity implements NavigationView.OnNavi
 
         //Menu
         drawerLayout = findViewById(R.id.drawer_layout);
-        navigationView = findViewById(R.id.menu_drawer);
-
+        navigationView = findViewById(R.id.navigationView);
         ActionBarDrawerToggle actionBarDrawerToggle = new ActionBarDrawerToggle(mmeennuu.this,
                 drawerLayout,
                 R.string.open,
@@ -62,7 +62,9 @@ public class mmeennuu extends AppCompatActivity implements NavigationView.OnNavi
         drawerLayout.addDrawerListener(actionBarDrawerToggle);
         actionBarDrawerToggle.syncState();
 
+        navigationView.bringToFront();
         navigationView.setNavigationItemSelectedListener(this);
+        navigationView.getCheckedItem();
     }
 
     private void featuredRecycler() {
@@ -124,7 +126,7 @@ public class mmeennuu extends AppCompatActivity implements NavigationView.OnNavi
     @Override
     public boolean onNavigationItemSelected(@NonNull @NotNull MenuItem item) {
         switch (item.getItemId()){
-            case R.id.ProfileMenu:
+            case R.id.navProfile:
                 showprofile();
                 break;
             case R.id.SignoutMenu:

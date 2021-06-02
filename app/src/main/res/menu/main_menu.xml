@@ -1,29 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <item
-        android:id="@+id/ProfileMenu"
+    <group android:checkableBehavior="single">
+        <item
+        android:id="@+id/navProfile"
         android:icon="@drawable/profile_menu"
         android:title="MY PROFILE" />
 
-    <item
+        <item
         android:id="@+id/QrMenu"
         android:icon="@drawable/qr_menu"
         android:title="QR CODE" />
 
-    <item
+        <item
         android:id="@+id/WalletMenu"
         android:icon="@drawable/walletmenu"
         android:title="WALLET" />
-    <item
+
+        <item
         android:id="@+id/MapMenu"
         android:icon="@drawable/map_menu"
         android:title="MAP" />
-    <item
+
+        <item
         android:id="@+id/SignoutMenu"
         android:icon="@drawable/signout_menu"
         android:title="SIGN OUT" />
 
+    </group>
 </menu>
 
 
