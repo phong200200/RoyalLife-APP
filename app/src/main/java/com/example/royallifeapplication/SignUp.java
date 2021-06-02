@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.google.android.material.textfield.TextInputLayout;
 import com.google.firebase.auth.FirebaseAuth;
@@ -21,8 +22,8 @@ import java.util.regex.Pattern;
 public class SignUp extends AppCompatActivity {
     private Button btnsignup;
     private TextInputLayout fullname,email,username,pass,passagain;
-    FirebaseDatabase fAuth;
-    DatabaseReference reference;
+    DatabaseReference fAuth;
+
     private boolean isValidEmailId(String email){
 
         return Pattern.compile("^(([\\w-]+\\.)+[\\w-]+|([a-zA-Z]{1}|[\\w-]{2,}))@"
@@ -40,6 +41,7 @@ public class SignUp extends AppCompatActivity {
         getSupportActionBar().hide();
         setContentView(R.layout.activity_sign_up);
 
+        fAuth = FirebaseDatabase.getInstance().getReference("User");
 
         btnsignup = findViewById(R.id.btnSignup);
         fullname = findViewById(R.id.edtFullname);
@@ -88,17 +90,20 @@ public class SignUp extends AppCompatActivity {
                     passagain.setError("Confirm Password is Required");
                     return;
                 }
+
                 if(!PassW.equals(RePass)){
                     passagain.setError("Password not matching ");
                     passagain.requestFocus();
                     return;
                 }else passagain.setError(null);
-                Intent intent = new Intent(getApplication(),VerifyPhone.class);
 
-                intent.putExtra("fullname",FullName);
-                intent.putExtra("email",Email);
-                intent.putExtra("username",UserName);
-                intent.putExtra("pass",PassW);
+                User user = new User(FullName,Email,PassW,UserName);
+
+                fAuth.child(UserName).setValue(user);
+
+                Toast.makeText(SignUp.this,"inserted",Toast.LENGTH_LONG).show();
+
+                Intent intent = new Intent(getApplication(),VerifyPhone.class);
 
                 startActivity(intent);
             }

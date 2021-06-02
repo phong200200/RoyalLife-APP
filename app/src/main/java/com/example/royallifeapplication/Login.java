@@ -26,9 +26,9 @@ import org.jetbrains.annotations.NotNull;
 
 public class Login extends AppCompatActivity {
     private TextInputLayout userLogin, passLogin;
-    private Button buttonLogin, buttonSignUp;
+    private Button buttonLogin, buttonSignUp,forgot;
     private
-    FirebaseAuth fAuth;
+    //FirebaseDatabase rootNode;
     DatabaseReference post;
 
     @Override
@@ -38,15 +38,25 @@ public class Login extends AppCompatActivity {
         getSupportActionBar().hide();
         setContentView(R.layout.activity_login);
 
+        post = FirebaseDatabase.getInstance().getReference().child("post");
+
         userLogin = findViewById(R.id.edtUsername);
         passLogin = findViewById(R.id.edtPassword);
 
-        fAuth = FirebaseAuth.getInstance();
+        //fAuth = FirebaseAuth.getInstance();
         buttonLogin = findViewById(R.id.btnLogin);
         buttonSignUp = findViewById(R.id.btnCreate);
 
         String username = userLogin.getEditText().getText().toString().trim();
         String password = userLogin.getEditText().getText().toString().trim();
+        //forgot
+        forgot = findViewById(R.id.Forgot);
+        forgot.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
 
         //login
         buttonLogin.setOnClickListener(new View.OnClickListener() {

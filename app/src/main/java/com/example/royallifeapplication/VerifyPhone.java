@@ -133,21 +133,9 @@ public class VerifyPhone extends AppCompatActivity {
     }
 
     public void authenticateUser(PhoneAuthCredential credential) {
-        String fullname = getIntent().getExtras().getString("fullname");
-        String email = getIntent().getExtras().getString("email");
-        String username = getIntent().getExtras().getString("username");
-        String pass = getIntent().getExtras().getString("pass");
-        String phone = phonenumber.getEditText().getText().toString().trim();
-
         fAuth.signInWithCredential(credential).addOnSuccessListener(new OnSuccessListener<AuthResult>() {
             @Override
             public void onSuccess(AuthResult authResult) {
-                User usercreate = new User(fullname, email, phone, pass, username);
-
-                FirebaseDatabase.getInstance().getReference("User")
-                        .child(username)
-                        .setValue(usercreate)
-                ;
                 Toast.makeText(VerifyPhone.this, "Success", Toast.LENGTH_LONG).show();
 
                 startActivity(new Intent(getApplicationContext(), mmeennuu.class));

@@ -125,15 +125,13 @@ public class mmeennuu extends AppCompatActivity implements NavigationView.OnNavi
     public boolean onNavigationItemSelected(@NonNull @NotNull MenuItem item) {
         switch (item.getItemId()){
             case R.id.ProfileMenu:
-                Toast.makeText(mmeennuu.this,"profile",Toast.LENGTH_LONG).show();
-                Intent inten = new Intent(getApplication(),Profile.class);
-                startActivity(inten);
+                showprofile();
                 break;
             case R.id.SignoutMenu:
                 FirebaseAuth.getInstance().signOut();
-                Intent intent = new Intent(mmeennuu.this,Login.class);
-                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK| Intent.FLAG_ACTIVITY_CLEAR_TASK);
-                startActivity(intent);
+                Intent intentt = new Intent(mmeennuu.this,Login.class);
+                intentt.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK| Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                startActivity(intentt);
                 break;
         }
         drawerLayout.closeDrawer(GravityCompat.START);
@@ -148,5 +146,21 @@ public class mmeennuu extends AppCompatActivity implements NavigationView.OnNavi
         else{
             super.onBackPressed();
         }
+    }
+    public  void showprofile(){
+        Intent intent = getIntent();
+        String fullname = intent.getStringExtra("fullname");
+        String email = intent.getStringExtra("email");
+        String pass = intent.getStringExtra("pass");
+        String username = intent.getStringExtra("username");
+        String phone = intent.getStringExtra("phone");
+
+        Intent intent1 = new Intent(getApplication(), Profile.class);
+        intent1.putExtra("fullname",fullname);
+        intent1.putExtra("email",email);
+        intent1.putExtra("phone",phone);
+        intent1.putExtra("pass",pass);
+        intent1.putExtra("username",username);
+        startActivity(intent1);
     }
 }

@@ -2,15 +2,14 @@ package com.example.royallifeapplication;
 
 public class User {
 
-    public String fullname,email,username, pass,phone;
+    public String fullname,email,username, pass;
 
     public User(){
 
     }
-    public User(String fullname,String email, String phone, String pass, String username){
+    public User(String fullname,String email,  String pass, String username){
         this.fullname = fullname;
         this.email = email;
-        this.phone =phone;
         this.pass = pass;
         this.username = username;
     }

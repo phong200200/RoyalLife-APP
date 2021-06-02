@@ -14,6 +14,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "1085245269495-5f7d1qmpvg0v3o5a349d67hlpbga2cfc.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.royallifeapplication",
+            "certificate_hash": "f1be47e8f81e5d95fed0cf54abe18929634a8222"
+          }
+        },
+        {
           "client_id": "1085245269495-kmng0mfird4m1qk2e8hq570fhbfjepgt.apps.googleusercontent.com",
           "client_type": 3
         }
