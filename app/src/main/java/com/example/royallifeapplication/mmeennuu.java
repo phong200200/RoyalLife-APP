@@ -4,7 +4,9 @@ import android.content.Intent;
 import android.graphics.drawable.GradientDrawable;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
 import android.view.WindowManager;
+import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -28,6 +30,7 @@ import java.util.ArrayList;
 
 public class mmeennuu extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
+    public static int choosingNo;
     RecyclerView viewedCard;
     ViewedCard adapter1;
     RecyclerView featuredRecycler;
@@ -38,6 +41,12 @@ public class mmeennuu extends AppCompatActivity implements NavigationView.OnNavi
     DrawerLayout drawerLayout;
     NavigationView navigationView;
     FirebaseAuth fAuth;
+
+    public LinearLayout lnShopping;
+    public LinearLayout lnCine;
+    public LinearLayout lnHotel;
+    public LinearLayout lnRest;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,6 +54,7 @@ public class mmeennuu extends AppCompatActivity implements NavigationView.OnNavi
         getSupportActionBar().hide();
         setContentView(R.layout.activity_mmeennuu);
 
+        binding();
         featuredRecycler = findViewById(R.id.featred_recycler);
         featuredRecycler();
         viewedCard = findViewById(R.id.featred_recycler1);
@@ -65,6 +75,46 @@ public class mmeennuu extends AppCompatActivity implements NavigationView.OnNavi
         navigationView.bringToFront();
         navigationView.setNavigationItemSelectedListener(this);
         navigationView.getCheckedItem();
+
+        lnRest.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                choosingNo = 1;
+                Intent intent = new Intent(mmeennuu.this, choosingPlace.class);
+                startActivity(intent);
+            }
+        });
+        lnHotel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                choosingNo = 2;
+                Intent intent = new Intent(mmeennuu.this, choosingPlace.class);
+                startActivity(intent);
+            }
+        });
+        lnShopping.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                choosingNo = 3;
+                Intent intent = new Intent(mmeennuu.this, choosingPlace.class);
+                startActivity(intent);
+            }
+        });
+        lnCine.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                choosingNo = 4;
+                Intent intent = new Intent(mmeennuu.this, choosingPlace.class);
+                startActivity(intent);
+            }
+        });
+    }
+
+    private void binding() {
+        lnShopping = (LinearLayout) findViewById(R.id.lnShopp);
+        lnCine = (LinearLayout) findViewById(R.id.lnCine);
+        lnHotel = (LinearLayout) findViewById(R.id.lnHotel);
+        lnRest = (LinearLayout) findViewById(R.id.lnRest);
     }
 
     private void featuredRecycler() {
